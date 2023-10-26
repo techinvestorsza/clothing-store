@@ -75,11 +75,31 @@ let increment = (id) => {
         search.item += 1;
     }
 
-    console.log(basket);
+    localStorage.setItem("data", JSON.stringify(basket));
+
+    update(seletedItem.id);
 };
 
 let decrement = (id) => {
     let seletedItem = id;
-    console.log(seletedItem.id);
+    let search = basket.find((item) => item.id === seletedItem.id);
+
+    if (search.item === 0) return;
+    else search.item -= 1;
+
+    localStorage.setItem("data", JSON.stringify(basket));
+
+    update(seletedItem.id);
 };
-let update = () => {};
+let update = (id) => {
+    let search = basket.find((item) => item.id === id);
+    console.log(search.item);
+    document.getElementById(id).innerHTML = search.item;
+
+    calculation();
+};
+
+let calculation = () => {
+    let cartIcon = document.getElementById("cartAmount");
+    cartIcon.innerHTML = basket.map((x) => x.item).reduce((x, y) => x + y, 0);
+}
