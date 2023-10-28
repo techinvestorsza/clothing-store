@@ -31,11 +31,12 @@ let shopItemsData = [
     }
 ];
 
-let basket = [];
+let basket = JSON.parse(localStorage.getItem("data")) || [];
 
 let generateShop = () => {
     return (shop.innerHTML = shopItemsData.map((item) => {
         let {id, name, price, desc, img } = item;
+        let search = basket.find((x) => x.id === id) || [];
         return `
         <div id=product-id-${id} class="item">
         <img width="220" src=${img} alt="Long sleeve shirt">
@@ -48,7 +49,7 @@ let generateShop = () => {
                     <a onclick="decrement(${id})" class="bi bi-dash-lg">
                         <img src="images/icons/minus_btn.png" alt="minus button">
                     </a>
-                    <div id=${id} class="quanity">0</div>
+                    <div id=${id} class="quanity">${search.item === undefined ? 0 : search.item}</div>
                     <a onclick="increment(${id})" class="bi  bi-plus-lg">
                         <img src="images/icons/plust_btn.png" alt="plus button">
                     </a>
@@ -103,3 +104,6 @@ let calculation = () => {
     let cartIcon = document.getElementById("cartAmount");
     cartIcon.innerHTML = basket.map((x) => x.item).reduce((x, y) => x + y, 0);
 }
+
+// run calculation everytime the applications loads
+calculation();
