@@ -8,7 +8,7 @@ let shopItemsData = [
     },
     {
         id: 'dfiushfuiwnssfs',
-        name: "office Shirt",
+        name: "Office Shirt",
         price: 100,
         desc: "Lorem ipsum dolor, sit amet consectetur adipisicing.",
         img: "images/two-shirts-with-tie.png"

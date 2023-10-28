@@ -4,8 +4,30 @@
     box-sizing: border-box;
 }
 
+html {
+	/* Improve consistency of default fonts in all browsers. (https://github.com/sindresorhus/modern-normalize/issues/3) */
+	font-family:
+		system-ui,
+		'Segoe UI',
+		Roboto,
+		Helvetica,
+		Arial,
+		sans-serif,
+		'Apple Color Emoji',
+		'Segoe UI Emoji';
+	line-height: 1.15; /* 1. Correct the line height in all browsers. */
+	-webkit-text-size-adjust: 100%; /* 2. Prevent adjustments of font size after orientation changes in iOS. */
+	-moz-tab-size: 4; /* 3. Use a more readable tab size (opinionated). */
+	tab-size: 4; /* 3 */
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
 body {
-    font-family: sans-serif;
+    font-family:  'General Sans' , sans-serif;
+    background-color: #1e293b;
 }
 
 /* Styling the navbar */
@@ -13,6 +35,21 @@ body {
 a {
     text-decoration: none;
     color: white;
+}
+
+.navbar h2 {
+    background-color: transparent;
+    padding: 16px;
+    border-radius: 3px;
+
+    box-shadow: 0px 0px 15px 10px #15181b;
+    color: #8681ef;
+
+    transition: .3s;
+}
+
+.navbar h2:hover {
+    box-shadow: 0px 0px 15px 3px blue;
 }
 
 .navbar {
@@ -23,7 +60,10 @@ a {
     color: white;
     padding: 25px 60px;
     align-items: center;
-    margin-bottom: 30px;
+    position: fixed;
+    width: 100%;
+    z-index: 999;
+    box-shadow: 0px 0px 15px 10px #15181b;
 }
 
 /* Styling the cart */
@@ -34,6 +74,13 @@ a {
     font-size: 30px;
     padding: 10px;
     border-radius: 4px;
+    box-shadow: 0px 0px 15px 15px #15181b;
+
+    transition: .3s;
+}
+
+.cart:hover {
+    box-shadow: 0px 0px 15px 3px lightblue;
 }
 
 .cartAmount {
@@ -45,6 +92,7 @@ a {
     color: white;
     padding: 3px;
     border-radius: 3px;
+    font-weight: 700;
 }
 
 /* Styling the items display */
@@ -55,6 +103,7 @@ a {
     gap: 30px;
     justify-content: center;
     margin-bottom: 30px;
+    padding-top: 200px;
 }
 
 @media (max-width: 1000px) {
@@ -72,6 +121,10 @@ a {
 .item {
     border: 2px solid #212529;
     border-radius: 4px;
+    background-color: white;
+    box-shadow: 0px 0px 15px 10px #15181b;
+
+    transition: transform 0.3s;
 }
 
 .item img {
@@ -103,42 +156,85 @@ a {
 
 .bi-dash-lg {
     background-color: red;
+
+    transition: 0.3s;
 }
 
 .bi-plus-lg {
     background-color: green;
+    align-items: center;
+
+    transition: transform 0.3s, background-color 1s;
+}
+
+.bi-plus-lg:hover,
+.bi-dash-lg:hover {
+    transform: translateY(3px);
+    background-color: white;
 }
 
 /* Style rules for label and some buttons. */
 .text-center {
     text-align: center;
     margin-bottom: 20px;
+    padding-top: 150px;
 }
 
 .HomeBtn,
 .checkout,
 .removeAll {
     background-color: #212529;
+    font-weight: 600px;
     color: white;
     border: none;
     padding: 6px;
     border-radius: 3px;
     cursor: pointer;
     margin-top: 10px;
+    box-shadow: 0px 0px 15px 3px #15181b;
+
+    transition: 0.3s;
+}
+
+.removeAll {
+    margin-left: 4px;
+}
+
+.HomeBtn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0px 0px 15px 3px blue;
+}
+
+.checkout:hover {
+    transform: translateY(-3px);
+    box-shadow: 0px 0px 15px 3px lightgreen;
+}
+
+.removeAll:hover {
+    transform: translateY(-3px);
+    box-shadow: 0px 0px 15px 3px lightcoral
 }
 
 .checkout {
     background-color: green;
+    font-weight: 800;
 }
 
 .removeAll {
     background-color: red;
+    font-weight: 800;
 }
 
 .bi-x-lg {
     color: red;
     font-weight: bold;
     cursor: pointer;
+    transition: 0.5s;
+}
+
+.bi-x-lg:hover {
+    box-shadow: 0px 0px 15px 3px red;
+    transform: rotate(720deg);
 }
 
 /* Style rules for shopping-cart */
@@ -154,6 +250,18 @@ a {
     border: 2px solid #212529;
     border-radius: 5px;
     display: flex;
+    background-color: white;
+    box-shadow: 0px 0px 15px 10px #15181b;
+
+    background-color: ;
+
+    transition: transform 0.3s;
+}
+
+.item:hover,
+.cart-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0px 0px 15px 3px lightblue;
 }
 
 .title-price-x {
